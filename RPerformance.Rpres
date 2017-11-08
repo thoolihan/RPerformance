@@ -12,7 +12,6 @@ Bio
 ![Bio Pic](images/running.jpg)
 
 - Tim Hoolihan
-- From Dayton, OH area
 - Live in Northeast Ohio (Akron / Cleveland)
 - Senior Director of Data Science at DialogTech
 - Organizer of the Cleveland R User Group: [meetup.com/Cleveland-UseR-Group](https://www.meetup.com/Cleveland-UseR-Group/)
@@ -37,7 +36,7 @@ Codemash
 Thanks to all Codemash & Kalahari staff and volunteers, this is my favorite tech event of the year
 
 #### 2018 Highlights / Recommendations...
-* foo 
+* foo
 * bar
 * baz
 
@@ -47,8 +46,10 @@ Hello Benchmarking
 ```{r}
 library(rbenchmark)
 
+1:5
 (1:5)^2
 benchmark((1:100)^2)
+benchmark((1:100)^2, replications = 5000)
 ```
 
 Benchmarking More Complex
@@ -56,7 +57,7 @@ Benchmarking More Complex
 First we define a function that returns the absolute difference between a circle with the radius and a given area
 ```{r}
 circle_area_difference <- function(radius, area = 1) {
-  return(abs(1 - pi * radius ^ 2))
+  return(abs(area - pi * radius ^ 2))
 }
 circle_area_difference(1, 3.14)
 ```
@@ -73,14 +74,40 @@ Benchmark multiple approaches
 ```{r}
 library(rbenchmark)
 
-benchmark(optimize(circle_area_difference, lower = 0, upper = 1), 
-          replications = 10,
+benchmark(optimize(circle_area_difference, lower = 0, upper = 1),
+          replications = 500,
           columns = c('replications', 'elapsed', 'user.self', 'sys.self'),
           order = 'elapsed')
 
 library(optimx)
-benchmark(optimx(par = c(.5), fn = circle_area_difference, lower = 0, upper = 1), 
-          replications = 10,
+benchmark(optimx(par = c(.5), fn = circle_area_difference, lower = 0, upper = 1),
+          replications = 500,
+          columns = c('replications', 'elapsed', 'user.self', 'sys.self'),
+          order = 'elapsed')
+```
+
+Vectorize Operations
+========================================================
+```{r}
+library(rbenchmark)
+
+large_vec = 1:10000
+
+get_roots <- function(nums) {
+  tmp <- c()
+  for(n in nums) {
+    tmp <- c(tmp, sqrt(n))
+  }
+  return(tmp)
+}
+
+get_roots_vec <- function(nums) { return(sqrt(nums))}
+
+benchmark(get_roots(large_vec),
+          columns = c('replications', 'elapsed', 'user.self', 'sys.self'),
+          order = 'elapsed')
+
+benchmark(get_roots_vec(large_vec),
           columns = c('replications', 'elapsed', 'user.self', 'sys.self'),
           order = 'elapsed')
 ```
@@ -95,4 +122,4 @@ Questions? / Contact
 - Cleveland R User Group: [meetup.com/Cleveland-UseR-Group/](https://www.meetup.com/Cleveland-UseR-Group/)
 - Cleveland R User Group Talks: [youtube.com/channel/UC7C4YZ-9itQW7Nl4RVKDflg](https://www.youtube.com/channel/UC7C4YZ-9itQW7Nl4RVKDflg)
 
-# Thank you for coming today, make the most of YOUR Codemash
+# Thank you for coming today, make the most of Your Codemash
