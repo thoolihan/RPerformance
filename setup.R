@@ -1,3 +1,4 @@
 install.packages('optimx',
                  'rbenchmark',
-                 'knitr')
+                 'knitr',
+                 'pryr')
