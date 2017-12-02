@@ -112,6 +112,28 @@ benchmark(get_roots_vec(large_vec),
           order = 'elapsed')
 ```
 
+Memory Profiling
+========================================================
+```{r}
+library(pryr)
+```
+
+## Single variable
+```{r}
+a = 1
+object_size(a)
+```
+## List
+```{r}
+b = 1:1000
+object_size(b)
+```
+## All Objewcts
+```{r}
+ls()
+object_size(ls())
+```
+
 Questions? / Contact
 ========================================================
 - Twitter: [@thoolihan](https://twitter.com/thoolihan)
