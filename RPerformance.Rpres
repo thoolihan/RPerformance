@@ -12,7 +12,7 @@ Bio
 ![Bio Pic](images/running.jpg)
 
 - Tim Hoolihan
-- Live in Northeast Ohio (Akron / Cleveland)
+- Just like Lebron, I live in West Akron and work in Cleveland
 - Senior Director of Data Science at DialogTech
 - Organizer of the Cleveland R User Group: [meetup.com/Cleveland-UseR-Group](https://www.meetup.com/Cleveland-UseR-Group/)
 - Created a series of R machine learning videos: [packtpub.com/all?search=Hoolihan](https://www.packtpub.com/all?search=Hoolihan)
@@ -43,10 +43,10 @@ Roadmap
 ========================================================
 * Tools and techniques
   * benchmarking
-  * vectorizing
-  * parallelization
+  * vectorization
   * data.table
   * memory profiling
+  * parallelization    
 * Case Study Walkthrough
 * Other options
 
@@ -157,6 +157,14 @@ Memory Profiling (cont)
 ls()
 object_size(ls())
 ```
+
+parallel
+========================================================
+Part of base R as of 2.14
+
+Description: "Support for parallel computation, including by forking
+   (taken from package multicore), by sockets (taken from package snow)
+   and random-number generation.""
 
 Other Options
 ========================================================
