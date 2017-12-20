@@ -17,7 +17,6 @@ Bio
 - Organizer of the Cleveland R User Group: [meetup.com/Cleveland-UseR-Group](https://www.meetup.com/Cleveland-UseR-Group/)
 - Created a series of R machine learning videos: [packtpub.com/all?search=Hoolihan](https://www.packtpub.com/all?search=Hoolihan)
 
-
 ========================================================
 
 <img src="images/dt-logo.png" style="background-color:transparent; border:0px; box-shadow:none;"></img>
@@ -40,16 +39,26 @@ Thanks to all Codemash & Kalahari staff and volunteers, this is my favorite tech
 * bar
 * baz
 
+Roadmap
+========================================================
+* Tools and techniques
+  * benchmarking
+  * vectorizing
+  * parallelization
+  * data.table
+  * memory profiling
+* Case Study Walkthrough
+* Other options
+
 Hello Benchmarking
 ========================================================
 [RBenchmark Package](https://cran.r-project.org/web/packages/rbenchmark/index.html)
 ```{r}
 library(rbenchmark)
 
-1:5
-(1:5)^2
-benchmark((1:100)^2)
-benchmark((1:100)^2, replications = 5000)
+1:25
+benchmark((1:25)^2)
+benchmark((1:25)^2, replications = 1000)
 ```
 
 Benchmarking More Complex
@@ -101,19 +110,31 @@ get_roots <- function(nums) {
   return(tmp)
 }
 
-get_roots_vec <- function(nums) { return(sqrt(nums))}
-
 benchmark(get_roots(large_vec),
           columns = c('replications', 'elapsed', 'user.self', 'sys.self'),
           order = 'elapsed')
+```
+
+Vectorize Operations(cont)
+========================================================
+```{r}
+
+get_roots_vec <- function(nums) { return(sqrt(nums))}
 
 benchmark(get_roots_vec(large_vec),
           columns = c('replications', 'elapsed', 'user.self', 'sys.self'),
           order = 'elapsed')
 ```
 
+data.table
+========================================================
+[CRAN package page](https://cran.r-project.org/web/packages/data.table/index.html)
+
+Description: "Fast aggregation of large data (e.g. 100GB in RAM), fast ordered joins, fast add/modify/delete of columns by group using no copies at all, list columns, a fast friendly file reader and parallel file writer. Offers a natural and flexible syntax, for faster development."
+
 Memory Profiling
 ========================================================
+More info [here](http://adv-r.had.co.nz/memory.html)
 ```{r}
 library(pryr)
 ```
@@ -128,11 +149,23 @@ object_size(a)
 b = 1:1000
 object_size(b)
 ```
-## All Objewcts
+
+Memory Profiling (cont)
+========================================================
+## All Objects
 ```{r}
 ls()
 object_size(ls())
 ```
+
+Other Options
+========================================================
+* [Spark](https://spark.apache.org/)
+  * [Sparklyr](https://cran.rstudio.com/web/packages/sparklyr/index.html)
+* [Hadoop](http://hadoop.apache.org/)
+  * [r2mr](https://github.com/RevolutionAnalytics/rmr2)
+  * [RHipe](https://github.com/delta-rho/RHIPE)
+* [h20](https://cran.r-project.org/web/packages/h2o/index.html)
 
 Questions? / Contact
 ========================================================
