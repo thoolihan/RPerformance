@@ -26,29 +26,22 @@ Bio
 * Offices in Chicago, IL and Cleveland, OH
 * [dialogtech.com/careers](https://www.dialogtech.com/careers)
 
-Sponsors
-========================================================
-*placeholder*
-
 Codemash
 ========================================================
-Thanks to all Codemash & Kalahari staff and volunteers, this is my favorite tech event of the year
+## Thanks to all Codemash & Kalahari staff and volunteers! This is my favorite tech event of the year.
 
-#### 2018 Highlights / Recommendations...
-* foo
-* bar
-* baz
-
-Roadmap
+Purpose
 ========================================================
-* Tools and techniques
-  * benchmarking
-  * vectorization
-  * data.table
-  * memory profiling
-  * parallelization    
-* Case Study Walkthrough
-* Other options
+R is often unfairly maligned for being slow, and not being able to deal with big data. Let's talk about:
+
+* Tools for measuring performance
+* Common performance issues
+* Dealing with Large Data Sets
+* How this works in an example
+
+First, We Need To A Score Card
+========================================================
+![Galileo](images/measure.jpg)
 
 Hello Benchmarking
 ========================================================
@@ -61,7 +54,7 @@ benchmark((1:25)^2)
 benchmark((1:25)^2, replications = 1000)
 ```
 
-Benchmarking More Complex
+Optimize Function We Will Benchmark
 ========================================================
 First we define a function that returns the absolute difference between a circle with the radius and a given area
 ```{r}
@@ -77,60 +70,21 @@ optimize(circle_area_difference, lower = 0, upper = 1)
 ```
 `$minimum` is the best value it found, and `$objective` is the output of the function at the value
 
-Benchmarking More Complex (cont.)
+Benchmarking Comparison
 ========================================================
 Benchmark multiple approaches
 ```{r}
 library(rbenchmark)
-
-benchmark(optimize(circle_area_difference, lower = 0, upper = 1),
-          replications = 500,
-          columns = c('replications', 'elapsed', 'user.self', 'sys.self'),
-          order = 'elapsed')
-
 library(optimx)
-benchmark(optimx(par = c(.5), fn = circle_area_difference, lower = 0, upper = 1),
-          replications = 500,
-          columns = c('replications', 'elapsed', 'user.self', 'sys.self'),
+
+benchmark("optimize" = {optimize(circle_area_difference, lower = 0, upper = 1)},
+          "optimx" = {optimx(par = c(.5), fn = circle_area_difference, lower = 0, upper = 1)},
+          replications = 200,
+          columns = c('test', 'replications', 'relative', 'elapsed', 'user.self', 'sys.self'),
           order = 'elapsed')
 ```
 
-Vectorize Operations
-========================================================
-```{r}
-library(rbenchmark)
-
-large_vec = 1:10000
-
-get_roots <- function(nums) {
-  tmp <- c()
-  for(n in nums) {
-    tmp <- c(tmp, sqrt(n))
-  }
-  return(tmp)
-}
-
-benchmark(get_roots(large_vec),
-          columns = c('replications', 'elapsed', 'user.self', 'sys.self'),
-          order = 'elapsed')
-```
-
-Vectorize Operations(cont)
-========================================================
-```{r}
-
-get_roots_vec <- function(nums) { return(sqrt(nums))}
-
-benchmark(get_roots_vec(large_vec),
-          columns = c('replications', 'elapsed', 'user.self', 'sys.self'),
-          order = 'elapsed')
-```
-
-data.table
-========================================================
-[CRAN package page](https://cran.r-project.org/web/packages/data.table/index.html)
-
-Description: "Fast aggregation of large data (e.g. 100GB in RAM), fast ordered joins, fast add/modify/delete of columns by group using no copies at all, list columns, a fast friendly file reader and parallel file writer. Offers a natural and flexible syntax, for faster development."
+*&ast; Note the "relative" column, which is a magnitude after normalizing the smallest test to 1.*
 
 Memory Profiling
 ========================================================
@@ -158,15 +112,64 @@ ls()
 object_size(ls())
 ```
 
-parallel
+A Common Performance Problem
 ========================================================
-Part of base R as of 2.14
+> "If you wrote a for loop in R, you're most likely doing it wrong" - Me
 
-Description: "Support for parallel computation, including by forking
-   (taken from package multicore), by sockets (taken from package snow)
-   and random-number generation.""
+Vectorize Operations
+========================================================
+```{r}
+library(rbenchmark)
 
-Other Options
+large_vec = 1:10000
+
+get_roots <- function(nums) {
+  tmp <- c()
+  for(n in nums) {
+    tmp <- c(tmp, sqrt(n))
+  }
+  return(tmp)
+}
+
+benchmark(get_roots(large_vec),
+          columns = c('test', 'replications', 'user.self', 'sys.self'))
+```
+
+Vectorize Operations(cont)
+========================================================
+```{r}
+
+benchmark("loop" = {get_roots(large_vec)},
+          "vec" = {sqrt(large_vec)},
+          columns = c('test', 'replications', 'relative', 'user.self', 'sys.self'),
+          order = 'elapsed')
+```
+
+But R Is Interpreted...
+========================================================
+> "Are you down with [RCPP](https://cran.r-project.org/web/packages/Rcpp/index.html)?"" - Naughty By Nature
+
+![OPP](images/opp.jpg)
+
+But R Is Older Than Big Data...
+========================================================
+> "R first appeared during Star Trek: TNG (1993) and was based of S, which began in 1976, so it has no mechanism for dealing with the big data we know about today. Also, my uncle was on TNG last season." - The liar you knew in the fifth grade
+
+![TNG](images/tng.jpg)
+
+data.table
+========================================================
+[CRAN package page](https://cran.r-project.org/web/packages/data.table/index.html)
+
+Description: "Fast aggregation of large data (e.g. 100GB in RAM), fast ordered joins, fast add/modify/delete of columns by group using no copies at all, list columns, a fast friendly file reader and parallel file writer. Offers a natural and flexible syntax, for faster development."
+
+Chunk From Disk
+========================================================
+* [ff](https://cran.r-project.org/web/packages/ff/index.html)
+* [ffbase](https://cran.r-project.org/web/packages/ffbase/index.html)
+
+
+But My Data Is Bigger Than My Drive...
 ========================================================
 * [Spark](https://spark.apache.org/)
   * [Sparklyr](https://cran.rstudio.com/web/packages/sparklyr/index.html)
@@ -175,11 +178,36 @@ Other Options
   * [RHipe](https://github.com/delta-rho/RHIPE)
 * [h20](https://cran.r-project.org/web/packages/h2o/index.html)
 
+
+But A Single Core Can't Keep Up...
+========================================================
+parallel
+Part of base R as of 2.14
+
+Description: "Support for parallel computation, including by forking
+   (taken from package multicore), by sockets (taken from package snow)
+   and random-number generation."
+   
+But I Have 10 Versions Of My Data Frame After Prepping Data...
+========================================================
+* Remove variables with rm()
+* Explicity run garbage collection with gc()
+  * "You'll shoot your eye out" - Santa
+
+But I Have a GPU Worth More Than Your Car...
+========================================================
+* [tensorflow R package](https://cran.r-project.org/web/packages/tensorflow/index.html) 
+  * [Talk by Bryan Lewis at CRUG](https://www.youtube.com/watch?v=iHH9zpHXqOA)
+* [keras R package](https://cran.r-project.org/web/packages/keras/index.html)
+  * [Talk by Tim Hoolihan at CRUG](https://www.youtube.com/watch?v=iHH9zpHXqOA)
+* Why not just use Python?
+
 Questions? / Contact
 ========================================================
 - Twitter: [@thoolihan](https://twitter.com/thoolihan)
 - Slides: [github.com/thoolihan/RPerformance](https://github.com/thoolihan/RPerformance)
-- Blog: [hoolihan.net/blog-tim](https://hoolihan.net/blog-tim)
+- Homepage: [hoolihan.net](http://hoolihan.net)
+- Blog: [hoolihan.net/blog-tim](http://hoolihan.net/blog-tim)
 - Videos: [youtube.com/c/TimHoolihan](https://www.youtube.com/c/TimHoolihan)
 - ML Videos: [packtpub.com/all?search=Hoolihan](https://www.packtpub.com/all?search=Hoolihan)
 - Cleveland R User Group: [meetup.com/Cleveland-UseR-Group/](https://www.meetup.com/Cleveland-UseR-Group/)
