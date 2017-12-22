@@ -1,4 +1,7 @@
 install.packages('optimx',
                  'rbenchmark',
                  'knitr',
-                 'pryr')
+                 'pryr',
+                 'data.table',
+                 'ff',
+                 'ffbase')
