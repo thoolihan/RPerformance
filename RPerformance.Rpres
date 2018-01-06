@@ -39,10 +39,6 @@ R is often unfairly maligned for being slow, and not being able to deal with big
 * Dealing with Large Data Sets
 * How this works in an example
 
-First, We Need To A Score Card
-========================================================
-![Galileo](images/measure.jpg)
-
 Hello Benchmarking
 ========================================================
 [RBenchmark Package](https://cran.r-project.org/web/packages/rbenchmark/index.html)
@@ -51,40 +47,13 @@ library(rbenchmark)
 
 1:25
 benchmark((1:25)^2)
-benchmark((1:25)^2, replications = 1000)
+benchmark((1:25)^2, replications = 500)
 ```
 
-Optimize Function We Will Benchmark
+Benchmarking
 ========================================================
-First we define a function that returns the absolute difference between a circle with the radius and a given area
-```{r}
-circle_area_difference <- function(radius, area = 1) {
-  return(abs(area - pi * radius ^ 2))
-}
-circle_area_difference(1, 3.14)
-```
 
-Now, we optimize it for a minimum, i.e. search for the radius that gives us closest to the target area
-```{r}
-optimize(circle_area_difference, lower = 0, upper = 1)
-```
-`$minimum` is the best value it found, and `$objective` is the output of the function at the value
-
-Benchmarking Comparison
-========================================================
-Benchmark multiple approaches
-```{r}
-library(rbenchmark)
-library(optimx)
-
-benchmark("optimize" = {optimize(circle_area_difference, lower = 0, upper = 1)},
-          "optimx" = {optimx(par = c(.5), fn = circle_area_difference, lower = 0, upper = 1)},
-          replications = 200,
-          columns = c('test', 'replications', 'relative', 'elapsed', 'user.self', 'sys.self'),
-          order = 'elapsed')
-```
-
-*&ast; Note the "relative" column, which is a magnitude after normalizing the smallest test to 1.*
+## Demo here
 
 Memory Profiling
 ========================================================
@@ -112,38 +81,19 @@ ls()
 object_size(ls())
 ```
 
+Memory Management
+========================================================
+
+## Demo
+
 A Common Performance Problem
 ========================================================
 > "If you wrote a for loop in R, you're most likely doing it wrong" - Me
 
 Vectorize Operations
 ========================================================
-```{r}
-library(rbenchmark)
 
-large_vec = 1:10000
-
-get_roots <- function(nums) {
-  tmp <- c()
-  for(n in nums) {
-    tmp <- c(tmp, sqrt(n))
-  }
-  return(tmp)
-}
-
-benchmark(get_roots(large_vec),
-          columns = c('test', 'replications', 'user.self', 'sys.self'))
-```
-
-Vectorize Operations(cont)
-========================================================
-```{r}
-
-benchmark("loop" = {get_roots(large_vec)},
-          "vec" = {sqrt(large_vec)},
-          columns = c('test', 'replications', 'relative', 'user.self', 'sys.self'),
-          order = 'elapsed')
-```
+## Demo
 
 But R Is Interpreted...
 ========================================================
@@ -167,7 +117,6 @@ Chunk From Disk
 ========================================================
 * [ff](https://cran.r-project.org/web/packages/ff/index.html)
 * [ffbase](https://cran.r-project.org/web/packages/ffbase/index.html)
-
 
 But My Data Is Bigger Than My Drive...
 ========================================================
