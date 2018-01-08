@@ -37,3 +37,7 @@ RPerformance.md
 RPerformance-figure/
 .Rproj.user
 RPerformance-rpubs.html
+data/**/*.csv
+data/**/*.xml
+data/**/*.zip
+data/**/*.gz
