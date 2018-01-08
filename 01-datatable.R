@@ -17,9 +17,7 @@ flights[carrier == "AA", .(month, day, origin, dest)]
 #  Note: I don't love the double indexing to order by an aggregation,
 #   but I can't index by miles as data.table applies the row index before
 #   the column index creates that new column titled miles
-mbc <- flights[, .(miles = sum(distance)), by = "carrier"][order(-miles)]
-setorder(mbc, -miles)
-mbc
+flights[, .(miles = sum(distance)), by = "carrier"][order(-miles)]
 
 # Find flights with same endpoints and different distance
 trip_variance <- flights[, .(avg_dist = mean(distance), sd_dist = sd(distance)), 
