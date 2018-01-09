@@ -37,7 +37,10 @@ RPerformance.md
 RPerformance-figure/
 .Rproj.user
 RPerformance-rpubs.html
+data/activity
 data/**/*.csv
 data/**/*.xml
 data/**/*.zip
 data/**/*.gz
+phones.ffData
+phones.RData
