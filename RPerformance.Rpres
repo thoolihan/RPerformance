@@ -8,8 +8,6 @@ Bio
 ========================================================
 
 ![Bio Pic](images/family.jpg)
-![Bio Pic](images/stadium.jpg)
-![Bio Pic](images/running.jpg)
 
 - Tim Hoolihan
 - Just like Lebron, I live in West Akron and work in Cleveland
@@ -21,14 +19,15 @@ Bio
 
 <img src="images/dt-logo.png" style="background-color:transparent; border:0px; box-shadow:none;"></img>
 
-# "DialogTech provides actionable marketing analytics for businesses that value inbound phone calls." - dialogtech.com
+## "DialogTech provides actionable marketing analytics for businesses that value inbound phone calls." - dialogtech.com
 
 * Offices in Chicago, IL and Cleveland, OH
+* We are hiring a Deep Learning Expert
 * [dialogtech.com/careers](https://www.dialogtech.com/careers)
 
 Codemash
 ========================================================
-## Thanks to all Codemash & Kalahari staff and volunteers! This is my favorite tech event of the year.
+### Thanks to all Codemash & Kalahari staff and volunteers! This is my favorite tech event of the year.
 
 Purpose
 ========================================================
@@ -55,7 +54,7 @@ system.time({system("du -shc ~/workspace")})
 What is user time? system time?
 ========================================================
 > “User CPU time” gives the CPU time spent by the current process (i.e., the current R session) and “system CPU time” gives the CPU time spent by the kernel (the operating system) on behalf of the current process. The operating system is used for things like opening files, doing input or output, starting other processes, and looking at the system clock: operations that involve resources that many processes must share. Different operating systems will have different things done by the operating system.
-> > William Dunlap on R-Help Mailing List
+> > \- William Dunlap on R-Help Mailing List
 
 
 Using rbenchmark package
@@ -112,18 +111,64 @@ Memory Management
 
 A Common Performance Problem
 ========================================================
-> "If you wrote a for loop in R, you're most likely doing it wrong" - Me
+> "If you wrote a for loop in R, you're most likely doing it wrong"
+> > \- Me
+
+Vectors
+========================================================
+
+Q\: What is a vector in R?
+
+A\: Everything
+
+```{r}
+i <- 9
+print(paste('class:', class(i),
+            'i[0]:', i[0],
+            'i[1]:', i[1],
+            'i[2]:', i[2]))
+```
+
+Q\: What?
+
+Vectorize Operations
+========================================================
+In other words, use R functions that operate on an entire vector of values, as opposed to looping through values and applying your function. Even if the underlying C code is using a for loop, trust that it is optimized to minimize the number of allocation steps.
+
+> Vectorising is about taking a “whole object” approach to a problem, thinking about vectors, not scalars.
+> > \- Hadley Wickham in [*Advanced R*](http://adv-r.had.co.nz/)
+
+Well summarized in this [blog post by Noam Ross: http://bit.ly/RpBOYe](http://bit.ly/RpBOYe)
+
+Vectorize for SIMD?
+========================================================
+Users who know something about low-level instructions often assume that R is faster with vectors because it can use multiple data instruction sets when available on the CPU. 
+
+This is kinda, sorta, not really the case. Because of memory allocation and other optimizations, it is faster to use vectorized code in R even with the default reference BLAS which does not use these enhancements. 
+
+Some implementations of R link to math libraries (BLAS implementations) that make various optimizations. For example, Revolution R comes with the [Intel MKL (Math Kernel Library)](https://software.intel.com/en-us/mkl) for performance reasons.
+
+For more info, see this [StackOverflow discussion: http://bit.ly/2qKSU9r](http://bit.ly/2qKSU9r)
 
 Vectorize Operations
 ========================================================
 
 ## Demo
 
-But R Is Interpreted...
+I want to implement function in C/C++ too
 ========================================================
-> "Are you down with [RCPP](https://cran.r-project.org/web/packages/Rcpp/index.html)?"" - Naughty By Nature
+
+I want to implement function in C/C++ too
+========================================================
+> "Are you down with [RCPP](https://cran.r-project.org/web/packages/Rcpp/index.html)?""
+> > -Naughty By Nature
 
 ![OPP](images/opp.jpg)
+
+RCPP
+========================================================
+
+## Demo
 
 data.table
 ========================================================
@@ -135,19 +180,6 @@ Chunk From Disk
 ========================================================
 * [ff](https://cran.r-project.org/web/packages/ff/index.html)
 * [ffbase](https://cran.r-project.org/web/packages/ffbase/index.html)
-
-But My Data Is Bigger Than My Drive...
-========================================================
-> Big Data comes into play when the CPU time for the calculation takes longer than the cognitive process of designing a model.
-> > (Paraphrased) Hadley Wickham
-
-* [Spark](https://spark.apache.org/)
-  * [Sparklyr](https://cran.rstudio.com/web/packages/sparklyr/index.html)
-* [Hadoop](http://hadoop.apache.org/)
-  * [r2mr](https://github.com/RevolutionAnalytics/rmr2)
-  * [RHipe](https://github.com/delta-rho/RHIPE)
-* [h20](https://cran.r-project.org/web/packages/h2o/index.html)
-
 
 But A Single Core Can't Keep Up...
 ========================================================
@@ -166,7 +198,26 @@ But I Have a GPU Worth More Than Your Car...
   * [Talk by Tim Hoolihan at CRUG](https://www.youtube.com/watch?v=iHH9zpHXqOA)
 * Why not just use Python?
 
-Questions? / Contact
+But My Data Is Bigger Than My Drive...
+========================================================
+> Big Data comes into play when the CPU time for the calculation takes longer than the cognitive process of designing a model.
+> > (Paraphrased) Hadley Wickham
+
+* [Spark](https://spark.apache.org/)
+  * [Sparklyr](https://cran.rstudio.com/web/packages/sparklyr/index.html)
+* [Hadoop](http://hadoop.apache.org/)
+  * [r2mr](https://github.com/RevolutionAnalytics/rmr2)
+  * [RHipe](https://github.com/delta-rho/RHIPE)
+* [h20](https://cran.r-project.org/web/packages/h2o/index.html)
+
+Cleveland R User Group
+========================================================
+Join us! We meet monthly in Cleveland
+
+- Cleveland R User Group: [meetup.com/Cleveland-UseR-Group/](https://www.meetup.com/Cleveland-UseR-Group/)
+- Cleveland R User Group Talks: [youtube.com/channel/UC7C4YZ-9itQW7Nl4RVKDflg](https://www.youtube.com/channel/UC7C4YZ-9itQW7Nl4RVKDflg)
+
+Questions? / Contact / Stalk Me
 ========================================================
 - Twitter: [@thoolihan](https://twitter.com/thoolihan)
 - Slides: [github.com/thoolihan/RPerformance](https://github.com/thoolihan/RPerformance)
