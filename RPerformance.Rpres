@@ -198,6 +198,7 @@ Chunk From Disk
 
 Chunking with ff, ffbase
 ========================================================
+When you're data won't fit in memory, but is still reasonable to work on a disk with.
 
 ## Demo
 

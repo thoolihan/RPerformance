@@ -6,4 +6,5 @@ install.packages(c('optimx',
                  'rcpp',
                  'ff',
                  'ffbase',
+                 'biglm',
                  'parallel'))

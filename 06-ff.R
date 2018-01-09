@@ -18,3 +18,8 @@ nrow(df)
 unique(df$Model)
 mean(df$x)
 mean(df$y)
+
+library(biglm)
+model <- bigglm(z ~ x + y, data = df)
+str(model)
+
