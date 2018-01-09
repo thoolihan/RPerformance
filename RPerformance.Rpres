@@ -64,7 +64,6 @@ Using rbenchmark package
 library(rbenchmark)
 
 1:25
-benchmark((1:25)^2)
 benchmark((1:25)^2, replications = 500)
 ```
 
@@ -158,7 +157,7 @@ Vectorize Operations
 I want to implement function in C/C++ too
 ========================================================
 
-I want to implement function in C/C++ too
+I want to implement functions in C/C++ too
 ========================================================
 > "Are you down with [RCPP](https://cran.r-project.org/web/packages/Rcpp/index.html)?""
 > > -Naughty By Nature
@@ -169,6 +168,16 @@ RCPP
 ========================================================
 
 ## Demo
+
+RCPP
+========================================================
+As cool as it is to have a second programming language stored in a string in your primary language (cough... SQL...), there must be a better way!?
+
+## Demo
+
+Audience participation
+========================================================
+Who would like to implement Newton's method in C++ live?
 
 data.table
 ========================================================
@@ -209,6 +218,17 @@ But My Data Is Bigger Than My Drive...
   * [r2mr](https://github.com/RevolutionAnalytics/rmr2)
   * [RHipe](https://github.com/delta-rho/RHIPE)
 * [h20](https://cran.r-project.org/web/packages/h2o/index.html)
+
+Put it all together
+========================================================
+Maybe?
+
+Asking for help
+========================================================
+* [stackoverflow.com/questions/tagged/r](https://stackoverflow.com/questions/tagged/r)
+* [community.rstudio.com](https://community.rstudio.com/)
+* [How to Write a Reproducable Example - by Hadley Wickham](http://bit.ly/2FkmXIh)
+  * [http://bit.ly/2FkmXIh](http://bit.ly/2FkmXIh)
 
 Cleveland R User Group
 ========================================================
