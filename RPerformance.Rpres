@@ -125,12 +125,6 @@ But R Is Interpreted...
 
 ![OPP](images/opp.jpg)
 
-But R Is Older Than Big Data...
-========================================================
-> "R first appeared during Star Trek: TNG (1993) and was based of S, which began in 1976, so it has no mechanism for dealing with the big data we know about today. Also, my uncle was on TNG last season." - The liar you knew in the fifth grade
-
-![TNG](images/tng.jpg)
-
 data.table
 ========================================================
 [CRAN package page](https://cran.r-project.org/web/packages/data.table/index.html)
@@ -144,6 +138,9 @@ Chunk From Disk
 
 But My Data Is Bigger Than My Drive...
 ========================================================
+> Big Data comes into play when the CPU time for the calculation takes longer than the cognitive process of designing a model.
+> > (Paraphrased) Hadley Wickham
+
 * [Spark](https://spark.apache.org/)
   * [Sparklyr](https://cran.rstudio.com/web/packages/sparklyr/index.html)
 * [Hadoop](http://hadoop.apache.org/)
@@ -160,12 +157,6 @@ Part of base R as of 2.14
 Description: "Support for parallel computation, including by forking
    (taken from package multicore), by sockets (taken from package snow)
    and random-number generation."
-   
-But I Have 10 Versions Of My Data Frame After Prepping Data...
-========================================================
-* Remove variables with rm()
-* Explicity run garbage collection with gc()
-  * "You'll shoot your eye out" - Santa
 
 But I Have a GPU Worth More Than Your Car...
 ========================================================
