@@ -39,7 +39,26 @@ R is often unfairly maligned for being slow, and not being able to deal with big
 * Dealing with Large Data Sets
 * How this works in an example
 
-Hello Benchmarking
+Time a process
+========================================================
+```{r}
+start <- Sys.time()
+Sys.sleep(0.5)
+end <- Sys.time()
+end - start
+```
+
+```{r}
+system.time({system("du -shc ~/workspace")})
+```
+
+What is user time? system time?
+========================================================
+> “User CPU time” gives the CPU time spent by the current process (i.e., the current R session) and “system CPU time” gives the CPU time spent by the kernel (the operating system) on behalf of the current process. The operating system is used for things like opening files, doing input or output, starting other processes, and looking at the system clock: operations that involve resources that many processes must share. Different operating systems will have different things done by the operating system.
+> > William Dunlap on R-Help Mailing List
+
+
+Using rbenchmark package
 ========================================================
 [RBenchmark Package](https://cran.r-project.org/web/packages/rbenchmark/index.html)
 ```{r}
@@ -54,6 +73,11 @@ Benchmarking
 ========================================================
 
 ## Demo here
+
+Other Benchmarking Alternatives
+========================================================
+* tictoc package
+* microbenchmark
 
 Memory Profiling
 ========================================================
