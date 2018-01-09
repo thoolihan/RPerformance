@@ -59,7 +59,7 @@ What is user time? system time?
 
 Using rbenchmark package
 ========================================================
-[RBenchmark Package](https://cran.r-project.org/web/packages/rbenchmark/index.html)
+[RBenchmark Package](https://cran.r-project.org/package=rbenchmark)
 ```{r}
 library(rbenchmark)
 
@@ -160,7 +160,7 @@ Since the solution seems to involve using R functions that are implemented in C/
 
 I want to implement functions in C/C++ too
 ========================================================
-> "Are you down with [RCPP](https://cran.r-project.org/web/packages/Rcpp/index.html)?""
+> "Are you down with [RCPP](http://cran.r-project.org/package=Rcpp)?""
 > > -Naughty By Nature
 
 ![OPP](images/opp.jpg)
@@ -182,7 +182,7 @@ Who would like to implement Newton's method in C++ live?
 
 data.table
 ========================================================
-[CRAN package page](https://cran.r-project.org/web/packages/data.table/index.html)
+[CRAN package page](https://cran.r-project.org/package=data.table)
 
 Description: "Fast aggregation of large data (e.g. 100GB in RAM), fast ordered joins, fast add/modify/delete of columns by group using no copies at all, list columns, a fast friendly file reader and parallel file writer. Offers a natural and flexible syntax, for faster development."
 
@@ -191,14 +191,13 @@ data.table
 
 ## Demo
 
-Chunk From Disk
-========================================================
-* [ff](https://cran.r-project.org/web/packages/ff/index.html)
-* [ffbase](https://cran.r-project.org/web/packages/ffbase/index.html)
-
 Chunking with ff, ffbase
 ========================================================
 When you're data won't fit in memory, but is still reasonable to work on a disk with.
+
+* ff [cran.r-project.org/package=ff](https://cran.r-project.org/package=ff)
+* ffbase [cran.r-project.org/package=ffbase](https://cran.r-project.org/package=ffbase)
+  * adds functionality to ff objects
 
 ## Demo
 
@@ -218,9 +217,9 @@ Parallel
 
 My GPU can run VR...
 ========================================================
-* [tensorflow R package](https://cran.r-project.org/web/packages/tensorflow/index.html) 
+* [tensorflow R package](https://cran.r-project.org/package=tensorflow) 
   * [Talk by Bryan Lewis at CRUG](https://www.youtube.com/watch?v=iHH9zpHXqOA)
-* [keras R package](https://cran.r-project.org/web/packages/keras/index.html)
+* [keras R package](https://cran.r-project.org/package=keras)
   * [Talk by Tim Hoolihan at CRUG](https://www.youtube.com/watch?v=iHH9zpHXqOA)
 * Why not just use Python?
 
@@ -230,11 +229,11 @@ My data has it's own zip code...
 > > (Paraphrased) Hadley Wickham
 
 * [Spark](https://spark.apache.org/)
-  * [Sparklyr](https://cran.rstudio.com/web/packages/sparklyr/index.html)
+  * [Sparklyr](https://cran.r-project.org/package=sparklyr)
 * [Hadoop](http://hadoop.apache.org/)
   * [r2mr](https://github.com/RevolutionAnalytics/rmr2)
   * [RHipe](https://github.com/delta-rho/RHIPE)
-* [h20](https://cran.r-project.org/web/packages/h2o/index.html)
+* [h20](https://cran.r-project.org/package=h20)
 
 Put it all together
 ========================================================
