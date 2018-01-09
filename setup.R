@@ -1,7 +1,9 @@
-install.packages('optimx',
+install.packages(c('optimx',
                  'rbenchmark',
                  'knitr',
                  'pryr',
                  'data.table',
+                 'rcpp',
                  'ff',
-                 'ffbase')
+                 'ffbase',
+                 'parallel'))

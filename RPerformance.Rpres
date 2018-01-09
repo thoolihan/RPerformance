@@ -25,7 +25,7 @@ Bio
 * We are hiring a Deep Learning Expert
 * [dialogtech.com/careers](https://www.dialogtech.com/careers)
 
-Codemash
+Thank You
 ========================================================
 ### Thanks to all Codemash & Kalahari staff and volunteers! This is my favorite tech event of the year.
 
@@ -72,12 +72,12 @@ Benchmarking
 
 ## Demo here
 
-Other Benchmarking Alternatives
+Other benchmarking alternatives
 ========================================================
 * tictoc package
 * microbenchmark
 
-Memory Profiling
+Memory profiling
 ========================================================
 More info [here](http://adv-r.had.co.nz/memory.html)
 ```{r}
@@ -95,7 +95,7 @@ b = 1:1000
 object_size(b)
 ```
 
-Memory Profiling (cont)
+Memory profiling (cont)
 ========================================================
 ## All Objects
 ```{r}
@@ -108,7 +108,7 @@ Memory Management
 
 ## Demo
 
-A Common Performance Problem
+A common performance problem
 ========================================================
 > "If you wrote a for loop in R, you're most likely doing it wrong"
 > > \- Me
@@ -130,7 +130,7 @@ print(paste('class:', class(i),
 
 Q\: What?
 
-Vectorize Operations
+Vectorize operations
 ========================================================
 In other words, use R functions that operate on an entire vector of values, as opposed to looping through values and applying your function. Even if the underlying C code is using a for loop, trust that it is optimized to minimize the number of allocation steps.
 
@@ -145,17 +145,18 @@ Users who know something about low-level instructions often assume that R is fas
 
 This is kinda, sorta, not really the case. Because of memory allocation and other optimizations, it is faster to use vectorized code in R even with the default reference BLAS which does not use these enhancements. 
 
-Some implementations of R link to math libraries (BLAS implementations) that make various optimizations. For example, Revolution R comes with the [Intel MKL (Math Kernel Library)](https://software.intel.com/en-us/mkl) for performance reasons.
+Some implementations of R link to math libraries (BLAS implementations) that make use of various optimizations. For example, Revolution R comes with the [Intel MKL (Math Kernel Library)](https://software.intel.com/en-us/mkl) for performance reasons.
 
 For more info, see this [StackOverflow discussion: http://bit.ly/2qKSU9r](http://bit.ly/2qKSU9r)
 
-Vectorize Operations
+Vectorize operations
 ========================================================
 
 ## Demo
 
 I want to implement function in C/C++ too
 ========================================================
+Since the solution seems to involve using R functions that are implemented in C/C++...
 
 I want to implement functions in C/C++ too
 ========================================================
@@ -185,12 +186,22 @@ data.table
 
 Description: "Fast aggregation of large data (e.g. 100GB in RAM), fast ordered joins, fast add/modify/delete of columns by group using no copies at all, list columns, a fast friendly file reader and parallel file writer. Offers a natural and flexible syntax, for faster development."
 
+data.table
+========================================================
+
+## Demo
+
 Chunk From Disk
 ========================================================
 * [ff](https://cran.r-project.org/web/packages/ff/index.html)
 * [ffbase](https://cran.r-project.org/web/packages/ffbase/index.html)
 
-But A Single Core Can't Keep Up...
+Chunking with ff, ffbase
+========================================================
+
+## Demo
+
+I have cores...
 ========================================================
 parallel
 Part of base R as of 2.14
@@ -198,8 +209,13 @@ Part of base R as of 2.14
 Description: "Support for parallel computation, including by forking
    (taken from package multicore), by sockets (taken from package snow)
    and random-number generation."
+   
+Parallel
+========================================================
 
-But I Have a GPU Worth More Than Your Car...
+## Demo
+
+My GPU can run VR...
 ========================================================
 * [tensorflow R package](https://cran.r-project.org/web/packages/tensorflow/index.html) 
   * [Talk by Bryan Lewis at CRUG](https://www.youtube.com/watch?v=iHH9zpHXqOA)
@@ -207,7 +223,7 @@ But I Have a GPU Worth More Than Your Car...
   * [Talk by Tim Hoolihan at CRUG](https://www.youtube.com/watch?v=iHH9zpHXqOA)
 * Why not just use Python?
 
-But My Data Is Bigger Than My Drive...
+My data has it's own zip code...
 ========================================================
 > Big Data comes into play when the CPU time for the calculation takes longer than the cognitive process of designing a model.
 > > (Paraphrased) Hadley Wickham
