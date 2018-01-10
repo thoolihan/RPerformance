@@ -17,3 +17,8 @@ models <- parLapply(cl, 1:7, function(neurons)
 
 models
 stopCluster(cl)
+
+model <- models[[1]]
+record <- iris[1,]
+record
+predict(model, record)

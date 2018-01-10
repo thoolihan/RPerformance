@@ -19,7 +19,6 @@ rm(df) # try to trigger a gc
 gc() #explicitly garbage collect
 
 gcinfo(FALSE)
-print("done")
 
 mem_change(df <- create_large_df())
 

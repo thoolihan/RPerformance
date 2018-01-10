@@ -6,6 +6,7 @@ flights <- fread("data/flights14.csv")
 
 # data.table automatically shows a reasonable chunk of data
 flights
+dim(flights)
 
 # data.table scopes column names in index
 #  as a sql query, this would be:

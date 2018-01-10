@@ -12,7 +12,6 @@ get_roots <- function(nums) {
 
 benchmark("loop" = {get_roots(large_vec)},
           "vec" = {sqrt(large_vec)},
-          columns = c('test', 'replications', 'relative', 'user.self', 'sys.self'),
           order = 'elapsed')
 
 sqrt

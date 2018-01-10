@@ -36,7 +36,7 @@ R is often unfairly maligned for being slow, and not being able to deal with big
 * Tools for measuring performance
 * Common performance issues
 * Dealing with Large Data Sets
-* How this works in an example
+* Other tips
 
 Time a process
 ========================================================
@@ -84,12 +84,12 @@ More info [here](http://adv-r.had.co.nz/memory.html)
 library(pryr)
 ```
 
-## Single variable
+## Scaler (single value)
 ```{r}
 a = 1
 object_size(a)
 ```
-## List
+## Vector (multiple values)
 ```{r}
 b = 1:1000
 object_size(b)
@@ -215,12 +215,12 @@ Parallel
 
 ## Demo
 
-My GPU can run VR...
+Deep learning with a GPU
 ========================================================
 * [tensorflow R package](https://cran.r-project.org/package=tensorflow) 
   * [Talk by Bryan Lewis at CRUG](https://www.youtube.com/watch?v=iHH9zpHXqOA)
 * [keras R package](https://cran.r-project.org/package=keras)
-  * [Talk by Tim Hoolihan at CRUG](https://www.youtube.com/watch?v=iHH9zpHXqOA)
+  * [Talk by Tim Hoolihan at CRUG](https://www.youtube.com/watch?v=ZgcJXmsCfXQ)
 * Why not just use Python?
 
 My data has it's own zip code...
@@ -235,14 +235,12 @@ My data has it's own zip code...
   * [RHipe](https://github.com/delta-rho/RHIPE)
 * [h20](https://cran.r-project.org/package=h20)
 
-Put it all together
-========================================================
-Maybe?
-
 Asking for help
 ========================================================
 * [stackoverflow.com/questions/tagged/r](https://stackoverflow.com/questions/tagged/r)
 * [community.rstudio.com](https://community.rstudio.com/)
+* [R mailing list](https://www.r-project.org/mail.html)
+* \#R on freenode irc
 * [How to Write a Reproducable Example - by Hadley Wickham](http://bit.ly/2FkmXIh)
   * [http://bit.ly/2FkmXIh](http://bit.ly/2FkmXIh)
 
