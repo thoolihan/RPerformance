@@ -176,9 +176,13 @@ As cool as it is to have a second programming language stored in a string in you
 
 ## Demo
 
-Audience participation
+Compressed data
 ========================================================
-Who would like to implement Newton's method in C++ live?
+```{r}
+fh <- gzfile("data/flights14.csv.gz", open = "rt")
+df <- read.csv(fh)
+head(df)
+```
 
 data.table
 ========================================================
@@ -190,6 +194,15 @@ data.table
 ========================================================
 
 ## Demo
+
+data.table takes a shell command
+========================================================
+Filter csv columns when loading
+```{r}
+library(data.table)
+dt <- fread("cut -f1,2,3,9 -d',' data/flights14.csv")
+dt
+```
 
 Chunking with ff, ffbase
 ========================================================
