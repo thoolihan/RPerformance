@@ -15,20 +15,6 @@ Bio
 - Organizer of the Cleveland R User Group: [meetup.com/Cleveland-UseR-Group](https://www.meetup.com/Cleveland-UseR-Group/)
 - Created a series of R machine learning videos: [packtpub.com/all?search=Hoolihan](https://www.packtpub.com/all?search=Hoolihan)
 
-========================================================
-
-<img src="images/dt-logo.png" style="background-color:transparent; border:0px; box-shadow:none;"></img>
-
-## "DialogTech provides actionable marketing analytics for businesses that value inbound phone calls." - dialogtech.com
-
-* Offices in Chicago, IL and Cleveland, OH
-* We are hiring a Deep Learning Expert
-* [dialogtech.com/careers](https://www.dialogtech.com/careers)
-
-Thank You
-========================================================
-### Thanks to all Codemash & Kalahari staff and volunteers! This is my favorite tech event of the year.
-
 Purpose
 ========================================================
 R is often unfairly maligned for being slow, and not being able to deal with big data. Let's talk about:
@@ -111,7 +97,7 @@ Memory Management
 A common performance problem
 ========================================================
 > "If you wrote a for loop in R, you're most likely doing it wrong"
-> > \- Me
+> > \- Everyone in R Community
 
 Vectors
 ========================================================
@@ -154,19 +140,10 @@ Vectorize operations
 
 ## Demo
 
-I want to implement function in C/C++ too
-========================================================
-Since the solution seems to involve using R functions that are implemented in C/C++...
-
 I want to implement functions in C/C++ too
 ========================================================
-> "Are you down with [RCPP](http://cran.r-project.org/package=Rcpp)?""
-> > -Naughty By Nature
 
-![OPP](images/opp.jpg)
-
-RCPP
-========================================================
+[RCPP](http://cran.r-project.org/package=Rcpp)
 
 ## Demo
 
@@ -257,14 +234,7 @@ Asking for help
 * [How to Write a Reproducable Example - by Hadley Wickham](http://bit.ly/2FkmXIh)
   * [http://bit.ly/2FkmXIh](http://bit.ly/2FkmXIh)
 
-Cleveland R User Group
-========================================================
-Join us! We meet monthly in Cleveland
-
-- Cleveland R User Group: [meetup.com/Cleveland-UseR-Group/](https://www.meetup.com/Cleveland-UseR-Group/)
-- Cleveland R User Group Talks: [youtube.com/channel/UC7C4YZ-9itQW7Nl4RVKDflg](https://www.youtube.com/channel/UC7C4YZ-9itQW7Nl4RVKDflg)
-
-Questions? / Contact / Stalk Me
+Questions? / Contact 
 ========================================================
 - Slides: [github.com/thoolihan/RPerformance](https://github.com/thoolihan/RPerformance)
 - Twitter: [@thoolihan](https://twitter.com/thoolihan)
@@ -274,6 +244,3 @@ Questions? / Contact / Stalk Me
 - ML Videos: [packtpub.com/all?search=Hoolihan](https://www.packtpub.com/all?search=Hoolihan)
 - Cleveland R User Group: [meetup.com/Cleveland-UseR-Group/](https://www.meetup.com/Cleveland-UseR-Group/)
 - Cleveland R User Group Talks: [youtube.com/channel/UC7C4YZ-9itQW7Nl4RVKDflg](https://www.youtube.com/channel/UC7C4YZ-9itQW7Nl4RVKDflg)
-
-## Thank you for coming today!
-## Make the most of Your Codemash
