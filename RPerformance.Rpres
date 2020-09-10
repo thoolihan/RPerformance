@@ -1,7 +1,7 @@
 R Performance (it's not R, it's you)
 ========================================================
 author: Tim Hoolihan
-date: Presented January 2018 at Codemash
+date: Presented September 2020
 autosize: true
 
 Bio
@@ -10,28 +10,22 @@ Bio
 ![Bio Pic](images/family.jpg)
 
 - Tim Hoolihan
-- Just like Lebron, I live in West Akron and work in Cleveland
-- Senior Director of Data Science at DialogTech
+- Local Service Offering Lead of Data & Analytics @ Centric Consulting
 - Organizer of the Cleveland R User Group: [meetup.com/Cleveland-UseR-Group](https://www.meetup.com/Cleveland-UseR-Group/)
 - Created a series of R machine learning videos: [packtpub.com/all?search=Hoolihan](https://www.packtpub.com/all?search=Hoolihan)
 
 ========================================================
 
-<img src="images/dt-logo.png" style="background-color:transparent; border:0px; box-shadow:none;"></img>
+<img src="images/centric-logo.png" style="background-color:transparent; border:0px; box-shadow:none;"></img>
 
-## "DialogTech provides actionable marketing analytics for businesses that value inbound phone calls." - dialogtech.com
+## Centric Consulting provides business and technical consulting services with unmatched client and employee experiences
 
-* Offices in Chicago, IL and Cleveland, OH
-* We are hiring a Deep Learning Expert
-* [dialogtech.com/careers](https://www.dialogtech.com/careers)
-
-Thank You
-========================================================
-### Thanks to all Codemash & Kalahari staff and volunteers! This is my favorite tech event of the year.
+* I am hiring a Sr Data Architect for the Cleveland Practice
+  * https://cutt.ly/wfTo1AW
 
 Purpose
 ========================================================
-R is often unfairly maligned for being slow, and not being able to deal with big data. Let's talk about:
+R is often unfairly maligned for being slow, and not being able to deal with big data. This may have to do with the number of non-traditional programmers that right code in R due to support of various domains. Let's talk about:
 
 * Tools for measuring performance
 * Common performance issues
@@ -143,9 +137,9 @@ Vectorize for SIMD?
 ========================================================
 Users who know something about low-level instructions often assume that R is faster with vectors because it can use multiple data instruction sets when available on the CPU. 
 
-This is kinda, sorta, not really the case. Because of memory allocation and other optimizations, it is faster to use vectorized code in R even with the default reference BLAS which does not use these enhancements. 
+This is kinda, sorta, not really the case. Because of memory allocation and other optimization, it is faster to use vectorized code in R even with the default reference BLAS which does not use these enhancements. 
 
-Some implementations of R link to math libraries (BLAS implementations) that make use of various optimizations. For example, Revolution R comes with the [Intel MKL (Math Kernel Library)](https://software.intel.com/en-us/mkl) for performance reasons.
+Some implementations of R link to math libraries (BLAS implementations) that make use of various optimized instructions. For example, Revolution R comes with the [Intel MKL (Math Kernel Library)](https://software.intel.com/en-us/mkl) for performance reasons.
 
 For more info, see this [StackOverflow discussion: http://bit.ly/2qKSU9r](http://bit.ly/2qKSU9r)
 
@@ -274,6 +268,3 @@ Questions? / Contact / Stalk Me
 - ML Videos: [packtpub.com/all?search=Hoolihan](https://www.packtpub.com/all?search=Hoolihan)
 - Cleveland R User Group: [meetup.com/Cleveland-UseR-Group/](https://www.meetup.com/Cleveland-UseR-Group/)
 - Cleveland R User Group Talks: [youtube.com/channel/UC7C4YZ-9itQW7Nl4RVKDflg](https://www.youtube.com/channel/UC7C4YZ-9itQW7Nl4RVKDflg)
-
-## Thank you for coming today!
-## Make the most of Your Codemash

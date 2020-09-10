@@ -1,4 +1,5 @@
 library(Rcpp) 
+library(ggplot2)
 
 # Hello Rcpp World
 cppFunction('int add(int x, int y) {

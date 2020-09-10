@@ -7,4 +7,6 @@ install.packages(c('optimx',
                  'ff',
                  'ffbase',
                  'biglm',
-                 'parallel'))
+                 'parallel',
+                 'pryr',
+                 'ggplot2'))
