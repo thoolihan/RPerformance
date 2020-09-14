@@ -94,7 +94,7 @@ Memory profiling (cont)
 ## All Objects
 ```{r}
 ls()
-object_size(ls())
+sapply(ls(), function (x) object_size(eval(parse(text=x))))
 ```
 
 Memory Management
@@ -133,42 +133,42 @@ In other words, use R functions that operate on an entire vector of values, as o
 
 Well summarized in this [blog post by Noam Ross: http://bit.ly/RpBOYe](http://bit.ly/RpBOYe)
 
-Vectorize for SIMD?
+Vectorize how?
 ========================================================
-Users who know something about low-level instructions often assume that R is faster with vectors because it can use multiple data instruction sets when available on the CPU. 
+```{r}
+# loop
+grades <- c(85, 90, 72)
+for(g in grades) { 
+  print(g / 100)
+}
 
-This is kinda, sorta, not really the case. Because of memory allocation and other optimization, it is faster to use vectorized code in R even with the default reference BLAS which does not use these enhancements. 
+# vectorized division
+print(grades / 100)
+```
 
-Some implementations of R link to math libraries (BLAS implementations) that make use of various optimized instructions. For example, Revolution R comes with the [Intel MKL (Math Kernel Library)](https://software.intel.com/en-us/mkl) for performance reasons.
-
-For more info, see this [StackOverflow discussion: http://bit.ly/2qKSU9r](http://bit.ly/2qKSU9r)
 
 Vectorize operations
 ========================================================
 
 ## Demo
 
-I want to implement function in C/C++ too
+Isn't there a more difficult way?
 ========================================================
 Since the solution seems to involve using R functions that are implemented in C/C++...
 
-I want to implement functions in C/C++ too
-========================================================
-> "Are you down with [RCPP](http://cran.r-project.org/package=Rcpp)?""
-> > -Naughty By Nature
+RCPP
 
-![OPP](images/opp.jpg)
 
 RCPP
 ========================================================
 
 ## Demo
 
-RCPP
-========================================================
-As cool as it is to have a second programming language stored in a string in your primary language (cough... SQL...), there must be a better way!?
 
-## Demo
+
+RCPP Disclaimer
+========================================================
+![Warning](images/shoot.jpg)
 
 Compressed data
 ========================================================
@@ -248,17 +248,11 @@ Asking for help
 * [community.rstudio.com](https://community.rstudio.com/)
 * [R mailing list](https://www.r-project.org/mail.html)
 * \#R on freenode irc
+* Cleveland R User Group: [meetup.com/Cleveland-UseR-Group/](https://www.meetup.com/Cleveland-UseR-Group/)
 * [How to Write a Reproducable Example - by Hadley Wickham](http://bit.ly/2FkmXIh)
   * [http://bit.ly/2FkmXIh](http://bit.ly/2FkmXIh)
 
-Cleveland R User Group
-========================================================
-Join us! We meet monthly in Cleveland
-
-- Cleveland R User Group: [meetup.com/Cleveland-UseR-Group/](https://www.meetup.com/Cleveland-UseR-Group/)
-- Cleveland R User Group Talks: [youtube.com/channel/UC7C4YZ-9itQW7Nl4RVKDflg](https://www.youtube.com/channel/UC7C4YZ-9itQW7Nl4RVKDflg)
-
-Questions? / Contact / Stalk Me
+Questions? / Contact
 ========================================================
 - Slides: [github.com/thoolihan/RPerformance](https://github.com/thoolihan/RPerformance)
 - Twitter: [@thoolihan](https://twitter.com/thoolihan)
